@@ -8,10 +8,11 @@ import java.sql.Timestamp;
  */
 public class  Subscriber implements MqttCallback {
 
-    public static void main(String[] args) {String topic = "topic";
+    public static void main(String[] args) {
+        String topic = args[0];
         int qos = 2;
         String broker = "tcp://localhost:1883";
-        String clientId = "AvoidColli Server";
+        String clientId = "AvoidColl Server";
         MemoryPersistence persistence = new MemoryPersistence();
         try {
 //Connect client to MQTT Broker
@@ -48,10 +49,15 @@ public class  Subscriber implements MqttCallback {
     {
 //This method is called when a message arrives from the server.
         String time = new Timestamp(System.currentTimeMillis()).toString();
+        String text1[] ={time,topic, String.valueOf(message)};
         System.out.println("Time:\t" +time +
                 "  Topic:\t" + topic + "  Message:\t"
                 + new String( message.getPayload()) + " QoS:\t"
                 + message.getQos());
+        if (topic == "danger"){
+            SampleMain.Job(true);
+        }
+
     }
     /***@seeMqttCallback#deliveryComplete(IMqttDeliveryToken)*/
     public void deliveryComplete(IMqttDeliveryToken token) {

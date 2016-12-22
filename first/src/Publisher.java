@@ -9,13 +9,13 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
  */
 public class Publisher {
     public static void main(String[] args) {
-        String topic = "topic";
-        String content = "Temperature is Getting High";
+        String topic = args[0];
+        String content = args[1];
         int qos = 2;
         String broker = "tcp://localhost:1883";
         String clientId = " JavaSamplePublisher ";
         MemoryPersistence persistence = new MemoryPersistence();
-        Publisher publish = new Publisher();
+        //Publisher publish = new Publisher();
 
         try {
 //Connect to MQTT Broker
@@ -34,7 +34,8 @@ public class Publisher {
             System.out.println("Message published");
             sampleClient.disconnect();
             System.out.println("Disconnected");
-            System.exit(0);
+            //System.exit(0);
+
         } catch(MqttException me) {
             System.out.println("reason " + me.getReasonCode());
             System.out.println(" msg " + me.getMessage());
