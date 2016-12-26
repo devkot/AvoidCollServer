@@ -17,6 +17,7 @@ class JDBCTest {
 
     public static void main(String args[]) {
         try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection con = DriverManager.getConnection(url, user, password);
             System.out.println("Success");
 
