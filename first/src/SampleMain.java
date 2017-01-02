@@ -5,23 +5,20 @@ import java.sql.DriverManager;
 import java.sql.*;
 
 
-/** * Created by jackfak on 19/12/2016.
+/** * Created by wallflower on 19/12/2016.
  */
 public class SampleMain {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private static final String url = "jdbc:mysql://localhost:3306/mydb";
-
     private static final String user = "root";
-
     private static final String password = "4ndp5$$$";
-
     public static void main(String args[]) throws MqttException {
 
 
         String text[]={"danger"," be"};
         Subscriber.main(text);
-        //Publisher.main(text);i
-        System.out.println("Success");
+        //Publisher.main(text);
+        //System.out.println("Success");
 
         try {
             // Register JDBC driver
