@@ -5,10 +5,9 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-
 class JDBCTest {
 
-    private static final String url = "jdbc:mysql://localhost";
+    private static final String url = "jdbc:mysql://localhost:3306/javabase";
 
     private static final String user = "root";
 
