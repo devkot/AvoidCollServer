@@ -7,6 +7,7 @@ import java.sql.Timestamp;
  * Created by jackfak on 16/12/2016.
  */
 public class  Subscriber implements MqttCallback {
+    private Thread t;
 
     public static void main(String[] args) {
         String topic = args[0];
@@ -56,10 +57,11 @@ public class  Subscriber implements MqttCallback {
                 + message.getQos());
         //System.out.println("something must be done!!!");
         String topub[]={topic,"fix the " + topic + " themes"};
-        Thread t = new Thread(new DoTheJob(topub));
+        t = new Thread(new DoTheJob(topub));
         t.start();
         //t.wait(4000);
-        t.interrupt();
+        //t.interrupt();
+
 
 
 

@@ -8,19 +8,25 @@ import java.sql.*;
 /** * Created by wallflower on 19/12/2016.
  */
 public class SampleMain {
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+   /* static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private static final String url = "jdbc:mysql://localhost:3306/mydb";
     private static final String user = "root";
     private static final String password = "4ndp5$$$";
+    */
     public static void main(String args[]) throws MqttException {
-
-
-        String text[]={"danger"," be"};
-        Subscriber.main(text);
+        String text0[]={"light","LightAvo"};
+        String text1[]={"proximity","ProxAvo"};
+        String text2[]={"acceleration","AccelAvo"};
+        Thread t0 = new Thread(new MessageLoop(text0));
+        Thread t1 = new Thread(new MessageLoop(text1));
+        Thread t2 = new Thread(new MessageLoop(text2));
+        t0.start();
+        t1.start();
+        t2.start();
         //Publisher.main(text);
         //System.out.println("Success");
 
-        try {
+      /*  try {
             // Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
@@ -56,14 +62,9 @@ public class SampleMain {
             e.printStackTrace();
         }
 
-
+    */
         //sub.messageArrived(topic , mes);
         //System.out.println("inside main\n\n\n\nBB");
     }
-    public static void Job(boolean subcall) {
-        if (subcall) {
-            String text1[] = {"danger", "do something"};
-            Publisher.main(text1);
-        }
-    }
+
 }

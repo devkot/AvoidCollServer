@@ -2,8 +2,13 @@
  * Created by jackfak on 2/1/2017.
  */
 public class DoTheJob  implements Runnable{
-    public DoTheJob(String[] args){
-        Publisher.main(args);
+    private String threadtop;
+    private String threadmes;
+    public DoTheJob(String arg[]){
+        //Publisher.main(args);
+        threadtop=arg[0];
+        threadmes=arg[1];
+
 
     }
 
@@ -19,6 +24,10 @@ public class DoTheJob  implements Runnable{
      * @see Thread#run()
      */
     public void run() {
+        String pub[]={threadtop,threadmes};
+        Publisher.main(pub);
+
+        //System.out.println("thread exit");
 
 
     }
