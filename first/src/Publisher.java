@@ -39,6 +39,7 @@ public class Publisher {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }*/
+
             //System.exit(0);
 
         } catch(MqttException me) {

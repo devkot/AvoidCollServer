@@ -10,6 +10,7 @@ public class DoTheJob  implements Runnable{
         threadmes=arg[1];
 
 
+
     }
 
     /**
@@ -25,7 +26,13 @@ public class DoTheJob  implements Runnable{
      */
     public void run() {
         String pub[]={threadtop,threadmes};
-        Publisher.main(pub);
+        boolean stop = false;
+        while(!stop){
+            Publisher.main(pub);
+            stop=true;
+
+        }
+
 
         //System.out.println("thread exit");
 
