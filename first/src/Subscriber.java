@@ -60,7 +60,7 @@ public class  Subscriber implements MqttCallback {
         t.start();
         //t.wait(4000);
         t.interrupt();
-        System.out.println("bla");
+
 
 
     }
