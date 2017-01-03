@@ -12,7 +12,7 @@ public class  Subscriber implements MqttCallback {
         String topic = args[0];
         int qos = 2;
         String broker = "tcp://localhost:1883";
-        String clientId = "AvoidColl Server";
+        String clientId = args[1];
         MemoryPersistence persistence = new MemoryPersistence();
         try {
 //Connect client to MQTT Broker
@@ -54,14 +54,20 @@ public class  Subscriber implements MqttCallback {
                 "  Topic:\t" + topic + "  Message:\t"
                 + new String( message.getPayload()) + " QoS:\t"
                 + message.getQos());
-        if (topic == "danger"){
-            SampleMain.Job(true);
-        }
+        //System.out.println("something must be done!!!");
+        String topub[]={topic,"fix the " + topic + " themes"};
+        Thread t = new Thread(new DoTheJob(topub));
+        t.start();
+        //t.wait(4000);
+        t.interrupt();
+
 
     }
     /***@seeMqttCallback#deliveryComplete(IMqttDeliveryToken)*/
     public void deliveryComplete(IMqttDeliveryToken token) {
 //Called when delivery for a message has been completed, and all acknowledgments have been received
     }
+
+
 }
 
