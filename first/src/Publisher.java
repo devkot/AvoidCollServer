@@ -9,8 +9,8 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
  */
 public class Publisher {
     public static void main(String[] args) {
-        String topic = args[0];
-        String content = args[1];
+        String topic = "danger";// args[0];
+        String content ="kati";// args[1];
         int qos = 2;
         String broker = "tcp://localhost:1883";
         String clientId = " JavaSamplePublisher ";
