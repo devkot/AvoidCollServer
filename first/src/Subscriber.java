@@ -8,6 +8,7 @@ import java.sql.Timestamp;
  */
 public class  Subscriber implements MqttCallback {
     private Thread t;
+    private boolean pub;
 
     public static void main(String[] args) {
         String topic = args[0];
@@ -42,29 +43,25 @@ public class  Subscriber implements MqttCallback {
     public void connectionLost(Throwable cause) {
 // This method is called when the connection to the server is lost.
         System.out.println("Connection lost!" + cause);
-        System.exit(1);
+        //System.exit(1);
     }
 
     /***@seeMqttCallback#messageArrived(String,MqttMessage)*/
     public void messageArrived(String topic, MqttMessage message) throws MqttException
     {
+        pub=true;
 //This method is called when a message arrives from the server.
         String time = new Timestamp(System.currentTimeMillis()).toString();
-        String text1[] ={time,topic, String.valueOf(message)};
+        //String text1[] ={time,topic, String.valueOf(message)};
         System.out.println("Time:\t" +time +
                 "  Topic:\t" + topic + "  Message:\t"
                 + new String( message.getPayload()) + " QoS:\t"
                 + message.getQos());
         //System.out.println("something must be done!!!");
-        String topub[]={topic,"fix the " + topic + " themes"};
-        t = new Thread(new DoTheJob(topub));
-        t.start();
-        //t.wait(4000);
-        //t.interrupt();
-
-
-
-
+            String topub[] = {topic, new String(message.getPayload())};
+            t = new Thread(new DoTheJob(topub));
+            //System.out.println("Starting the job");
+            t.start();
     }
     /***@seeMqttCallback#deliveryComplete(IMqttDeliveryToken)*/
     public void deliveryComplete(IMqttDeliveryToken token) {

@@ -10,6 +10,12 @@ public class DoTheJob  implements Runnable{
         threadmes=arg[1];
 
 
+        //System.out.println(threadmes);
+
+
+
+
+
 
     }
 
@@ -25,16 +31,25 @@ public class DoTheJob  implements Runnable{
      * @see Thread#run()
      */
     public void run() {
-        String pub[]={threadtop,threadmes};
-        boolean stop = false;
-        while(!stop){
-            Publisher.main(pub);
-            stop=true;
+        switch (threadtop){
+            case "Proximity":
+                if(threadmes=="0.0"){
+                    String alertP = "Danger too close to Object";
+                    Publisher.main(threadtop,alertP);
+                }
+                break;
 
+            case "Light":
+                float x = Float.valueOf(threadmes);
+                if(x<40.0){
+
+                    String alertL="Danger Lightning too low";
+                    Publisher.main(threadtop,alertL);
+                }
+                break;
+
+            default: break;
         }
-
-
-        //System.out.println("thread exit");
 
 
     }

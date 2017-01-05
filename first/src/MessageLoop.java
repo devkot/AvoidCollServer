@@ -2,8 +2,9 @@
  * Created by jackfak on 22/12/2016.
  */
     public class MessageLoop implements Runnable {
+        private String threadarr[];
         public MessageLoop(String[] text) {
-            Subscriber.main(text);
+            threadarr=text;
         }
 
         /**
@@ -18,6 +19,7 @@
          * @see Thread#run()
          */
         public void run() {
+            Subscriber.main(threadarr);
 
         }
 

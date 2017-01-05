@@ -14,9 +14,9 @@ public class SampleMain {
     private static final String password = "4ndp5$$$";
     */
     public static void main(String args[]) throws MqttException {
-        String text0[]={"light","LightAvo"};
-        String text1[]={"proximity","ProxAvo"};
-        String text2[]={"acceleration","AccelAvo"};
+        String text0[]={"Light","LightAvo"};
+        String text1[]={"Proximity","ProxAvo"};
+        String text2[]={"Acceleration","AccelAvo"};
         Thread t0 = new Thread(new MessageLoop(text0));
         Thread t1 = new Thread(new MessageLoop(text1));
         Thread t2 = new Thread(new MessageLoop(text2));
