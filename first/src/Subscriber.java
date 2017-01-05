@@ -7,14 +7,11 @@ import java.sql.Timestamp;
  * Created by jackfak on 16/12/2016.
  */
 public class  Subscriber implements MqttCallback {
-    private Thread t;
-    private boolean pub;
-
     public static void main(String[] args) {
-        String topic = args[0];
+        String topic = "#";
         int qos = 2;
         String broker = "tcp://localhost:1883";
-        String clientId = args[1];
+        String clientId = "listener";
         MemoryPersistence persistence = new MemoryPersistence();
         try {
 //Connect client to MQTT Broker
@@ -49,19 +46,13 @@ public class  Subscriber implements MqttCallback {
     /***@seeMqttCallback#messageArrived(String,MqttMessage)*/
     public void messageArrived(String topic, MqttMessage message) throws MqttException
     {
-        pub=true;
-//This method is called when a message arrives from the server.
         String time = new Timestamp(System.currentTimeMillis()).toString();
-        //String text1[] ={time,topic, String.valueOf(message)};
         System.out.println("Time:\t" +time +
                 "  Topic:\t" + topic + "  Message:\t"
                 + new String( message.getPayload()) + " QoS:\t"
                 + message.getQos());
-        //System.out.println("something must be done!!!");
-            String topub[] = {topic, new String(message.getPayload())};
-            t = new Thread(new DoTheJob(topub));
-            //System.out.println("Starting the job");
-            t.start();
+        new DoTheJob(topic,new String(message.getPayload()));
+
     }
     /***@seeMqttCallback#deliveryComplete(IMqttDeliveryToken)*/
     public void deliveryComplete(IMqttDeliveryToken token) {
