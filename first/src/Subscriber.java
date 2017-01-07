@@ -47,11 +47,11 @@ public class  Subscriber implements MqttCallback {
     public void messageArrived(String topic, MqttMessage message) throws MqttException
     {
         String time = new Timestamp(System.currentTimeMillis()).toString();
-        System.out.println("Time:\t" +time +
+        /*System.out.println("Time:\t" +time +
                 "  Topic:\t" + topic + "  Message:\t"
                 + new String( message.getPayload()) + " QoS:\t"
-                + message.getQos());
-        new DoTheJob(topic,new String(message.getPayload()));
+                + message.getQos());*/
+        new DoTheJob(topic,new String(message.getPayload()),time);
 
     }
     /***@seeMqttCallback#deliveryComplete(IMqttDeliveryToken)*/

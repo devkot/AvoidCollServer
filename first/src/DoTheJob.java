@@ -10,7 +10,7 @@ public class DoTheJob {
     public static float pvaluez = 0;
     public static int pspeed = 0;
     public static String pid = null;
-    public DoTheJob(String top, String mes) {
+    public DoTheJob(String top, String mes,String time) {
 
         float valuex=0;
         float valuey=0;
