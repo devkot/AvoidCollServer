@@ -26,21 +26,6 @@ public class DoTheJob {
         String Ltopic = new String();
         String id;
         for (String RR : str.get(0).split("/")) {
-            /*if(i==2){
-                switch (Ltopic){
-                    case "Light":
-
-                        break;
-                    case "Proximity":
-                        if(i == 2){
-                            float y = Float.parseFloat(RR);
-                            if(y==0.0){
-                                System.out.println("Danger!!! Too close to Object!!!");
-                            }
-                        }
-                        break;
-                }
-            }*/
             if(i==1) {
                 switch (RR) {
                     case "Light":
