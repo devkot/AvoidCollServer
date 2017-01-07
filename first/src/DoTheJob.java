@@ -50,6 +50,7 @@ public class DoTheJob {
                             float x=Float.parseFloat(RRM);
                             if(x<40.0){
                                 //System.out.println("Danger!!! Low Light!!!");
+                                //klhsh ths main gia egrafh sth vash tha ginei edw
                                 Publisher.main("Danger/","Danger!!! Low Light!!!");
                             }
                         }
@@ -61,6 +62,7 @@ public class DoTheJob {
                             float y=Float.parseFloat(RRM);
                             if(y==0.0){
                                 //System.out.println("Danger!!! To close to Object");
+                                //klhsh ths main gia egrafh sth vash tha ginei edw
                                 Publisher.main("Danger/","Danger!!! To close to Object");
                             }
                         }
@@ -91,6 +93,8 @@ public class DoTheJob {
                         pvaluey=valuey;
                         pvaluez=valuez;
                         pspeed=(int) Math.abs(Math.sqrt(pvaluex+pvaluey+pvaluez));
+                        //speedcase if
+                        //klhsh ths main gia egrafh sth vash tha ginei edw
                         break;
                     default:
                         break;
@@ -105,8 +109,5 @@ public class DoTheJob {
             }
             i++;
         }
-
-        //search List<String>
-
     }
 }

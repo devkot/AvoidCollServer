@@ -14,7 +14,7 @@ public class Publisher {
         String content =mes;
         int qos = 2;
         String broker = "tcp://localhost:1883";
-        String clientId = " JavaSamplePublisher ";
+        String clientId = " CollisionAvoidanceServer ";
         MemoryPersistence persistence = new MemoryPersistence();
             try {
 //Connect to MQTT Broker

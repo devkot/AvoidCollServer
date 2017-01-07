@@ -40,7 +40,7 @@ public class  Subscriber implements MqttCallback {
     public void connectionLost(Throwable cause) {
 // This method is called when the connection to the server is lost.
         System.out.println("Connection lost!" + cause);
-        //System.exit(1);
+        System.exit(1);
     }
 
     /***@seeMqttCallback#messageArrived(String,MqttMessage)*/
