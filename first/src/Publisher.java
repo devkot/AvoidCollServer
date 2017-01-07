@@ -8,7 +8,6 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
  * Created by jackfak on 16/12/2016.
  */
 public class Publisher {
-    private static boolean topub=true;
     public static void main( String top,String mes) {
 
         String topic = top;
@@ -17,9 +16,6 @@ public class Publisher {
         String broker = "tcp://localhost:1883";
         String clientId = " JavaSamplePublisher ";
         MemoryPersistence persistence = new MemoryPersistence();
-        //Publisher publish = new Publisher();
-        if(topub) {
-            topub=false;
             try {
 //Connect to MQTT Broker
                 MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
@@ -38,13 +34,6 @@ public class Publisher {
                 sampleClient.disconnect();
                 System.out.println("Disconnected");
 
-            /*try {
-                Thread.sleep(15000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }*/
-
-                //System.exit(0);
 
             } catch (MqttException me) {
                 System.out.println("reason " + me.getReasonCode());
@@ -55,6 +44,5 @@ public class Publisher {
                 me.printStackTrace();
             }
 
-        }
     }
 }
