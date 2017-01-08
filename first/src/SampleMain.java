@@ -9,7 +9,7 @@ import java.sql.*;
  */
 public class SampleMain {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String url = "jdbc:mysql://localhost:3306/mydb";
+    private static final String url = "jdbc:mysql://localhost:3306/my_db";
     private static final String user = "root";
     private static final String password = "4ndp5$$$";
     public static void main(String args[]) throws MqttException {
@@ -32,24 +32,23 @@ public class SampleMain {
             System.out.println("Creating statement...");
             Statement stmt = conn.createStatement();
             String sql;
-            sql = "SELECT * FROM Persons";
+            sql = "SELECT * FROM Measures";
             ResultSet rs = stmt.executeQuery(sql);
 
             //STEP 5: Extract data from result set
             while(rs.next()){
                 //Retrieve by column name
-                int id  = rs.getInt("PersonID");
-                String last = rs.getString("LastName");
-                String first = rs.getString("FirstName");
-                String adrress = rs.getString("Address");
-                String city = rs.getString("City");
+                //int id  = rs.getInt("PersonID");
+                String terminalname = rs.getString("TerminalName");
+                String location = rs.getString("Location");
+                String type_calculation = rs.getString("Type_Calc");
+                String date_time = rs.getString("Date_Time");
 
                 //Display values
-                System.out.println("ID: " + id);
-                System.out.println(", First: " + first);
-                System.out.println(", Last: " + last);
-                System.out.println(", Adrress: " + adrress);
-                System.out.println(", City: " + city);
+                System.out.println("TerminalName: " + terminalname);
+                System.out.println("Location: " + location);
+                System.out.println("Type & Calculation: " + type_calculation);
+                System.out.println("Date & Time: " + date_time);
             }
 
         } catch (Exception e) {
