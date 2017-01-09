@@ -6,7 +6,8 @@ import java.sql.*;
 
 /** * Created by wallflower on 19/12/2016.
  */
-public class SampleMain {
+public class SampleMain
+{
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private static final String url = "jdbc:mysql://localhost:3306/my_db";
     private static final String user = "root";
