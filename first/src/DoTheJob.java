@@ -52,7 +52,7 @@ public class DoTheJob {
                                 System.out.println("Timef - Current="+(System.currentTimeMillis()-timef));
                                 if ((System.currentTimeMillis()-timef)<1000) {
 
-                                    Publisher.main("Proximity/Confirmed","Collision Confirmed");
+                                    Publisher.main("Proximity/Confirmed","Collision Confirmed"+time);
                                 }
 
                             }
@@ -79,7 +79,7 @@ public class DoTheJob {
                                 System.out.println("Timef - Current="+(System.currentTimeMillis()-timef));
                                 if ((System.currentTimeMillis()-timef)<1000) {
 
-                                    Publisher.main("Proximity/Confirmed","Collision Confirmed");
+                                    Publisher.main("Proximity/Confirmed","Collision Confirmed"+time);
                                 }
 
                             }
@@ -124,7 +124,7 @@ public class DoTheJob {
                             System.out.println("Timef - Current="+(System.currentTimeMillis()-timef));
                             if ((System.currentTimeMillis()-timef)<1000) {
 
-                                Publisher.main("Acceleration/Confirmed","Collision Confirmed");
+                                Publisher.main("Acceleration/Confirmed","Collision Confirmed"+time);
                             }
 
                         }
