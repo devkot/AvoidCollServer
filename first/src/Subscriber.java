@@ -8,7 +8,7 @@ import java.sql.Timestamp;
  */
 public class  Subscriber implements MqttCallback {
     public static void main(String[] args) {
-        String topic = "#";
+        //String topic = "+/Proximity";
         int qos = 2;
         String broker = "tcp://localhost:1883";
         String clientId = "listener";
@@ -25,8 +25,12 @@ public class  Subscriber implements MqttCallback {
             sampleClient.connect(connOpts);
             System.out.println("Connected");
 //Subscribe to a topic
-            System.out.println("Subscribing to topic\" "+topic+"\" qos "+ qos);
-            sampleClient.subscribe(topic, qos);
+            System.out.println("Subscribing to topic\" "+"+/Light"+"\" qos "+ qos);
+            System.out.println("Subscribing to topic\" "+"+/Proximity"+"\" qos "+ qos);
+            System.out.println("Subscribing to topic\" "+"+/Acceleration"+"\" qos "+ qos);
+            sampleClient.subscribe("+/Light", qos);
+            sampleClient.subscribe("+/Proximity", qos);
+            sampleClient.subscribe("+/Acceleration", qos);
         } catch(MqttException me) {
             System.out.println("reason " + me.getReasonCode());
             System.out.println(" msg " + me.getMessage());
