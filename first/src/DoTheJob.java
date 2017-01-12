@@ -1,3 +1,6 @@
+import org.eclipse.paho.client.mqttv3.MqttException;
+
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +60,12 @@ public class DoTheJob {
                                 if ((System.currentTimeMillis()-timef)<1000) {
 
                                     Publisher.main("Light/Confirmed","Collision Confirmed "+time);
+                                    String s="Light"+Float.toString(x);
+                                    try {
+                                        SampleMain.main(id,lat+lon,s,time);
+                                    } catch (MqttException e) {
+                                        e.printStackTrace();
+                                    }
                                     System.out.println("Between "+id+" and "+pid);
                                 }
 
