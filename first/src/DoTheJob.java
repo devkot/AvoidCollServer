@@ -19,8 +19,12 @@ public class DoTheJob {
         float valuey=0;
         float valuez=0;
         float speed;
+        float x = 0;
+        float y = 0;
+        String lat=null;
+        String lon=null;
         boolean dcol = false;
-        int i=0,j=0;
+        int i=0,j=0,n=0;
         List<String> strM;
         strM = new ArrayList<>();
         strM.add(0,mes);
@@ -39,7 +43,15 @@ public class DoTheJob {
                         }
                         System.out.println("listening to light sensor");
                         for(String RRM : strM.get(0).split("/")){
-                            float x=Float.parseFloat(RRM);
+                            if(j==0) {
+                                x = Float.parseFloat(RRM);
+                            }
+                            if(j==1){
+                                lat=RRM;
+                            }
+                            if(j==2){
+                                lon=RRM;
+                            }
                             if(dcol && collision){
                                 System.out.println("Timef - Current="+(System.currentTimeMillis()-timef));
                                 if ((System.currentTimeMillis()-timef)<1000) {
@@ -66,8 +78,19 @@ public class DoTheJob {
                             System.out.println("different ids true");
                         }
                         System.out.println("listening to proximity sensor");
-                        for(String RRM : strM.get(0).split("/")){
-                            float y=Float.parseFloat(RRM);
+                        for(String RRM : strM.get(0).split("/")) {
+                            if (n == 0) {
+                                y = Float.parseFloat(RRM);
+                            }
+                            if (n == 1) {
+                                lat = RRM;
+                            }
+                            if (n == 2) {
+                                lon = RRM;
+                            }
+                            n++;
+                        }
+
                             System.out.println("dcol "+dcol+" collision "+collision);
                             if(dcol && collision){
                                 System.out.println("timef="+timef+" Current="+System.currentTimeMillis());
@@ -87,7 +110,6 @@ public class DoTheJob {
                                 collision=false;
 
                             }
-                        }
                         break;
                     case "Acceleration":
                         if(!(id.equals(pid))){
@@ -105,6 +127,12 @@ public class DoTheJob {
                             }
                             if(k==2) {
                                 valuez = Float.parseFloat(RRM);
+                            }
+                            if(k==3){
+                                lat=RRM;
+                            }
+                            if(k==4){
+                                lon=RRM;
                             }
                             k++;
                         }
