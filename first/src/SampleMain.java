@@ -29,6 +29,7 @@ public class SampleMain {
             Statement stmt = conn.createStatement();
             String sql;
             sql = "SELECT * FROM Measures";
+            //sql = "INSERT INTO Measures(TerminalName,Location,Type_Calc,Date_Time)VALUES ($[id],)";
             ResultSet rs = stmt.executeQuery(sql);
 
             //STEP 5: Extract data from result set
