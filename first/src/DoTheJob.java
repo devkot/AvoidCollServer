@@ -60,9 +60,9 @@ public class DoTheJob {
                                 if ((System.currentTimeMillis()-timef)<1000) {
 
                                     Publisher.main("Light/Confirmed","Collision Confirmed "+time);
-                                    String s="Light"+Float.toString(x);
+                                    String s="Light,"+Float.toString(x);
                                     try {
-                                        SampleMain.main(id,lat+lon,s,time);
+                                        SampleMain.main(id,lat+"-"+lon,s,time);
                                     } catch (MqttException e) {
                                         e.printStackTrace();
                                     }
@@ -74,9 +74,9 @@ public class DoTheJob {
                                 collision=true;
                                 timef=System.currentTimeMillis();
                                 Publisher.main("Light/Danger","Danger!!! Low Light!!! "+time);
-                                String s="Light"+Float.toString(x);
+                                String s="Light,"+Float.toString(x);
                                 try {
-                                    SampleMain.main(id,lat+lon,s,time);
+                                    SampleMain.main(id,lat+"-"+lon,s,time);
                                 } catch (MqttException e) {
                                     e.printStackTrace();
                                 }
@@ -111,9 +111,9 @@ public class DoTheJob {
                                 if ((System.currentTimeMillis()-timef)<1000) {
 
                                     Publisher.main("Proximity/Confirmed","Collision Confirmed "+time);
-                                    String s="Proximity"+Float.toString(y);
+                                    String s="Proximity,"+Float.toString(y);
                                     try {
-                                        SampleMain.main(id,lat+lon,s,time);
+                                        SampleMain.main(id,lat+"-"+lon,s,time);
                                     } catch (MqttException e) {
                                         e.printStackTrace();
                                     }
@@ -125,9 +125,9 @@ public class DoTheJob {
                                 collision=true;
                                 timef=System.currentTimeMillis();
                                 Publisher.main("Proximity/Danger","Danger!!! To close to Object "+time);
-                                String s="Proximity"+Float.toString(y);
+                                String s="Proximity,"+Float.toString(y);
                                 try {
-                                    SampleMain.main(id,lat+lon,s,time);
+                                    SampleMain.main(id,lat+"-"+lon,s,time);
                                 } catch (MqttException e) {
                                     e.printStackTrace();
                                 }
@@ -173,9 +173,9 @@ public class DoTheJob {
                             if ((System.currentTimeMillis()-timef)<1000) {
 
                                 Publisher.main("Acceleration/Confirmed","Collision Confirmed "+time);
-                                String s="Acceleration"+Float.toString(speed);
+                                String s="Acceleration,"+Float.toString(speed);
                                 try {
-                                    SampleMain.main(id,lat+lon,s,time);
+                                    SampleMain.main(id,lat+"-"+lon,s,time);
                                 } catch (MqttException e) {
                                     e.printStackTrace();
                                 }
@@ -187,9 +187,9 @@ public class DoTheJob {
                             collision=true;
                             timef=System.currentTimeMillis();
                             Publisher.main("Acceleration/Danger","Danger!!! Moving too Fast "+time);
-                            String s="Acceleration"+Float.toString(speed);
+                            String s="Acceleration,"+Float.toString(speed);
                             try {
-                                SampleMain.main(id,lat+lon,s,time);
+                                SampleMain.main(id,lat+"-"+lon,s,time);
                             } catch (MqttException e) {
                                 e.printStackTrace();
                             }
