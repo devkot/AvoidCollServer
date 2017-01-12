@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dd7113f4-735b-4201-8a82-33c089fd879a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/first/src/DoTheJob.java" afterPath="$PROJECT_DIR$/first/src/DoTheJob.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/test_paho/target/" />
@@ -27,21 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DoTheJob.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DoTheJob.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/first/src/DoTheJob.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+            <state relative-caret-position="352">
+              <caret line="208" column="17" lean-forward="false" selection-start-line="208" selection-start-column="17" selection-end-line="208" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SampleMain.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SampleMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/first/src/SampleMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="52" column="4" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+            <state relative-caret-position="112">
+              <caret line="14" column="78" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -50,11 +51,9 @@
       <file leaf-file-name="Subscriber.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/first/src/Subscriber.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="217">
               <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
-              <folding>
-                <marker date="1484230368311" expanded="false" signature="7:155" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,8 +89,8 @@
       <list>
         <option value="$PROJECT_DIR$/first/src/controller/tab/Tab1Controller.java" />
         <option value="$PROJECT_DIR$/first/src/Subscriber.java" />
-        <option value="$PROJECT_DIR$/first/src/DoTheJob.java" />
         <option value="$PROJECT_DIR$/first/src/SampleMain.java" />
+        <option value="$PROJECT_DIR$/first/src/DoTheJob.java" />
       </list>
     </option>
   </component>
@@ -531,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484232245639</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="klbrgk">
+      <created>1484232592393</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1484232592393</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -694,28 +700,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/first/src/SampleMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="14" column="78" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/first/src/Subscriber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="217">
           <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
-          <folding>
-            <marker date="1484230368311" expanded="false" signature="7:155" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/first/src/DoTheJob.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/first/src/SampleMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="52" column="4" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+        <state relative-caret-position="352">
+          <caret line="208" column="17" lean-forward="false" selection-start-line="208" selection-start-column="17" selection-end-line="208" selection-end-column="17" />
           <folding />
         </state>
       </provider>

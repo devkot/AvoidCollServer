@@ -207,7 +207,6 @@ public class DoTheJob {
                 if (!(RR.equals("Proximity") || RR.equals("Light") || RR.equals("Acceleration"))) {
                     id = RR;
                 }
-
             }
             i++;
         }
