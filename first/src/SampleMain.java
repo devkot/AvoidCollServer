@@ -50,8 +50,6 @@ public class SampleMain {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
 }
