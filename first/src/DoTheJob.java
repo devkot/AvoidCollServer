@@ -1,6 +1,5 @@
 import org.eclipse.paho.client.mqttv3.MqttException;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,10 +67,10 @@ public class DoTheJob {
                                     }
                                     //Publisher.main("Light/Confirmed","Collision Confirmed "+time);
                                     String s="Light,"+Float.toString(x);
-                                    /*try {
+                                    try {
                                         SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                                     } catch (MqttException e) {
-                                    }*/
+                                    }
                                     System.out.println("Between "+id+" and "+pid);
                                 }
 
@@ -88,11 +87,11 @@ public class DoTheJob {
                                 }
                                 //Publisher.main("Light/Danger","Danger!!! Low Light!!! "+time);
                                 String s="Light,"+Float.toString(x);
-                                /*try {
+                                try {
                                     SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                                 } catch (MqttException e) {
                                     e.printStackTrace();
-                                }*/
+                                }
                                 System.out.println("Timef ="+timef);
                             }else{
                                 collision=false;
@@ -131,11 +130,11 @@ public class DoTheJob {
                                     }
                                     //Publisher.main("Proximity/Confirmed","Collision Confirmed "+time);
                                     String s="Proximity,"+Float.toString(y);
-                                    /*try {
+                                    try {
                                         SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                                     } catch (MqttException e) {
                                         e.printStackTrace();
-                                    }*/
+                                    }
                                     System.out.println("Between "+id+" and "+pid);
                                 }
 
@@ -152,11 +151,11 @@ public class DoTheJob {
                                 }
                                 //Publisher.main("Proximity/Danger","Danger!!! To close to Object "+time);
                                 String s="Proximity,"+Float.toString(y);
-                                /*try {
+                                try {
                                     SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                                 } catch (MqttException e) {
                                     e.printStackTrace();
-                                }*/
+                                }
                             }else{
                                 collision=false;
 
@@ -206,11 +205,11 @@ public class DoTheJob {
                                 }
                                 //Publisher.main("Acceleration/Confirmed","Collision Confirmed "+time);
                                 String s="Acceleration,"+Float.toString(speed);
-                                /*try {
+                                try {
                                     SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                                 } catch (MqttException e) {
                                     e.printStackTrace();
-                                }*/
+                                }
                                 System.out.println("Between "+id+" and "+pid);
                             }
 
@@ -227,11 +226,11 @@ public class DoTheJob {
                             }
                             //Publisher.main("Acceleration/Danger","Danger!!! Moving too Fast "+time);
                             String s="Acceleration,"+Float.toString(speed);
-                            /*try {
+                            try {
                                 SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                             } catch (MqttException e) {
                                 e.printStackTrace();
-                            }*/
+                            }
 
                         }else{
                             collision=false;
