@@ -12,7 +12,7 @@ public class SampleMain {
     private static final String user = "root";
     private static final String password = "4ndp5$$$";
 
-    public static void main (String id,String loc,String type_calc,String time) throws MqttException {
+    public static void main (String id,String loc,String type_calc,String time,Boolean confirmed) throws MqttException {
         //Publisher.main(text);
         //System.out.println("Success");
 
