@@ -56,8 +56,9 @@ public class  Subscriber implements MqttCallback {
                 "  Topic:\t" + topic + "  Message:\t"
                 + new String( message.getPayload()) + " QoS:\t"
                 + message.getQos());*/
-        new DoTheJob(topic,new String(message.getPayload()),time);
-
+        Thread t;
+        t=new Thread (new DoTheJobCaller(topic,new String(message.getPayload()),time));
+        t.start();
     }
     /***@seeMqttCallback#deliveryComplete(IMqttDeliveryToken)*/
     public void deliveryComplete(IMqttDeliveryToken token) {
