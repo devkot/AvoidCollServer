@@ -8,11 +8,11 @@ import java.sql.Timestamp;
  * Created by jackfak on 16/12/2016.
  */
 public class  Subscriber implements MqttCallback {
-    public static void main(String[] args) {
+    public static void main() {
         //String topic = "+/Proximity";
         int qos = 2;
         String broker = "tcp://localhost:1883";
-        String clientId = "listener";
+        String clientId = "Server Listener";
         MemoryPersistence persistence = new MemoryPersistence();
         try {
 //Connect client to MQTT Broker

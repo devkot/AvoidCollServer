@@ -11,7 +11,7 @@ public class Publisher {
     public static void main( String top,String mes) {
 
         String topic = top;
-        String content =mes;
+        String content = mes;
         int qos = 2;
         String broker = "tcp://localhost:1883";
         String clientId = " CollisionAvoidanceServer ";

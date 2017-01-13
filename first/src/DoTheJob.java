@@ -16,6 +16,7 @@ public class DoTheJob {
     public static String id = "null";
     public static boolean collision = false;
     public static long timef = 0;
+    public Thread t;
     //public static float pspeed = 0;
     public DoTheJob(String top, String mes,String time) {
         float valuex=0;
@@ -58,14 +59,19 @@ public class DoTheJob {
                             if(dcol && collision){
                                 System.out.println("Timef - Current="+(System.currentTimeMillis()-timef));
                                 if ((System.currentTimeMillis()-timef)<1000) {
-
-                                    Publisher.main("Light/Confirmed","Collision Confirmed "+time);
-                                    String s="Light,"+Float.toString(x);
+                                    t=new Thread(new PubCaller("Light/Confirmed","Collision Confirmed "+time));
+                                    t.start();
                                     try {
+                                        t.join();
+                                    } catch (InterruptedException ie) {
+                                        ie.printStackTrace();
+                                    }
+                                    //Publisher.main("Light/Confirmed","Collision Confirmed "+time);
+                                    String s="Light,"+Float.toString(x);
+                                    /*try {
                                         SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                                     } catch (MqttException e) {
-                                        e.printStackTrace();
-                                    }
+                                    }*/
                                     System.out.println("Between "+id+" and "+pid);
                                 }
 
@@ -73,13 +79,20 @@ public class DoTheJob {
                             if(x<40.0){
                                 collision=true;
                                 timef=System.currentTimeMillis();
-                                Publisher.main("Light/Danger","Danger!!! Low Light!!! "+time);
-                                String s="Light,"+Float.toString(x);
+                                t=new Thread(new PubCaller("Light/Danger","Danger!!! Low Light!!! "+time));
+                                t.start();
                                 try {
+                                    t.join();
+                                } catch (InterruptedException ie) {
+                                    ie.printStackTrace();
+                                }
+                                //Publisher.main("Light/Danger","Danger!!! Low Light!!! "+time);
+                                String s="Light,"+Float.toString(x);
+                                /*try {
                                     SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                                 } catch (MqttException e) {
                                     e.printStackTrace();
-                                }
+                                }*/
                                 System.out.println("Timef ="+timef);
                             }else{
                                 collision=false;
@@ -109,14 +122,20 @@ public class DoTheJob {
                             System.out.println("dcol "+dcol+" collision "+collision);
                             if(dcol && collision){
                                 if ((System.currentTimeMillis()-timef)<1000) {
-
-                                    Publisher.main("Proximity/Confirmed","Collision Confirmed "+time);
-                                    String s="Proximity,"+Float.toString(y);
+                                    t=new Thread(new PubCaller("Proximity/Confirmed","Collision Confirmed "+time));
+                                    t.start();
                                     try {
+                                        t.join();
+                                    } catch (InterruptedException ie) {
+                                        ie.printStackTrace();
+                                    }
+                                    //Publisher.main("Proximity/Confirmed","Collision Confirmed "+time);
+                                    String s="Proximity,"+Float.toString(y);
+                                    /*try {
                                         SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                                     } catch (MqttException e) {
                                         e.printStackTrace();
-                                    }
+                                    }*/
                                     System.out.println("Between "+id+" and "+pid);
                                 }
 
@@ -124,13 +143,20 @@ public class DoTheJob {
                             if(y==0.0){
                                 collision=true;
                                 timef=System.currentTimeMillis();
-                                Publisher.main("Proximity/Danger","Danger!!! To close to Object "+time);
-                                String s="Proximity,"+Float.toString(y);
+                                t=new Thread(new PubCaller("Proximity/Danger","Danger!!! To close to Object "+time));
+                                t.start();
                                 try {
+                                    t.join();
+                                } catch (InterruptedException ie) {
+                                    ie.printStackTrace();
+                                }
+                                //Publisher.main("Proximity/Danger","Danger!!! To close to Object "+time);
+                                String s="Proximity,"+Float.toString(y);
+                                /*try {
                                     SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                                 } catch (MqttException e) {
                                     e.printStackTrace();
-                                }
+                                }*/
                             }else{
                                 collision=false;
 
@@ -171,14 +197,20 @@ public class DoTheJob {
                         if(dcol && collision){
                             System.out.println("Timef - Current="+(System.currentTimeMillis()-timef));
                             if ((System.currentTimeMillis()-timef)<1000) {
-
-                                Publisher.main("Acceleration/Confirmed","Collision Confirmed "+time);
-                                String s="Acceleration,"+Float.toString(speed);
+                                t=new Thread(new PubCaller("Acceleration/Confirmed","Collision Confirmed "+time));
+                                t.start();
                                 try {
+                                    t.join();
+                                } catch (InterruptedException ie) {
+                                    ie.printStackTrace();
+                                }
+                                //Publisher.main("Acceleration/Confirmed","Collision Confirmed "+time);
+                                String s="Acceleration,"+Float.toString(speed);
+                                /*try {
                                     SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                                 } catch (MqttException e) {
                                     e.printStackTrace();
-                                }
+                                }*/
                                 System.out.println("Between "+id+" and "+pid);
                             }
 
@@ -186,13 +218,20 @@ public class DoTheJob {
                         if(speed>2.0){
                             collision=true;
                             timef=System.currentTimeMillis();
-                            Publisher.main("Acceleration/Danger","Danger!!! Moving too Fast "+time);
-                            String s="Acceleration,"+Float.toString(speed);
+                            t=new Thread(new PubCaller("Acceleration/Danger","Danger!!! Moving too Fast "+time));
+                            t.start();
                             try {
+                                t.join();
+                            } catch (InterruptedException ie) {
+                                ie.printStackTrace();
+                            }
+                            //Publisher.main("Acceleration/Danger","Danger!!! Moving too Fast "+time);
+                            String s="Acceleration,"+Float.toString(speed);
+                            /*try {
                                 SampleMain.main(id,lat+"-"+lon,s,time,dcol);
                             } catch (MqttException e) {
                                 e.printStackTrace();
-                            }
+                            }*/
 
                         }else{
                             collision=false;
