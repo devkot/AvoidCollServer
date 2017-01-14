@@ -26,10 +26,12 @@ public class DoTheJobCaller implements Runnable {
     @Override
     public void run() {
         new DoTheJob(topic,message,time);
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException ie) {
-            ie.printStackTrace();
+        if(Thread.interrupted()) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ie) {
+                ie.printStackTrace();
+            }
         }
     }
 }
