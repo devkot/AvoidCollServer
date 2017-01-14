@@ -26,7 +26,11 @@ public class PubCaller implements Runnable {
     public void run() {
         Publisher.main(topic,message);
         if(Thread.interrupted()){
-
+            try {
+                Thread.currentThread(). sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

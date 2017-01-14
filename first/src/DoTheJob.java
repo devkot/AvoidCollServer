@@ -78,7 +78,7 @@ public class DoTheJob {
                             if(x<40.0){
                                 collision=true;
                                 timef=System.currentTimeMillis();
-                                t=new Thread(new PubCaller("Light/Danger","Danger!!! Low Light!!! "+time));
+                                t=new Thread(new PubCaller("Light/Danger/"+id,"Danger!!! Low Light!!! "+time));
                                 t.start();
                                 try {
                                     t.join();
@@ -142,7 +142,7 @@ public class DoTheJob {
                             if(y==0.0){
                                 collision=true;
                                 timef=System.currentTimeMillis();
-                                t=new Thread(new PubCaller("Proximity/Danger","Danger!!! To close to Object "+time));
+                                t=new Thread(new PubCaller("Proximity/Danger"+id,"Danger!!! To close to Object "+time));
                                 t.start();
                                 try {
                                     t.join();
@@ -217,7 +217,7 @@ public class DoTheJob {
                         if(speed>2.0){
                             collision=true;
                             timef=System.currentTimeMillis();
-                            t=new Thread(new PubCaller("Acceleration/Danger","Danger!!! Moving too Fast "+time));
+                            t=new Thread(new PubCaller("Acceleration/Danger"+id,"Danger!!! Moving too Fast "+time));
                             t.start();
                             try {
                                 t.join();
