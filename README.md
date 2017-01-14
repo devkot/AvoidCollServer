@@ -16,23 +16,25 @@ Project_Devs Team
 3. Αντίστοιχα για επιβεβαιομένη σύγκρουση μεταξύ δύο τερματικών γίνεται Publish στα Topics “Light/Confirmed” “Proximity/Confirmed” “Acceleration/Confirmed” στα οποία κάνουν Subscribe οι εφαρμογές στα αντίστοιχα τερματικά.
 
 Οι Μέθοδοι που υλοποιούνται για αυτές τις λειτουργείες είναι οι εξής:  
-  >>>
+  >>
 Subscriber  
     1. main  
     2. connectionLost  
     3. messageArrived  
     4. deliveryComplete  
-  
+  >>  
 Publisher    
-    1.main()->Εδώ δίνονται τα στοιχεία και τα topics στα οποία η εφαρμογή θα αποστείλει ειδοποιήσεις.  
+    1.main()->Εδώ δίνονται τα στοιχεία και τα topics στα οποία η εφαρμογή θα αποστείλει ειδοποιήσεις. 
+  >>
 SubCaller   
     1.Υλοποιεί το νήμα όπου τρέχει ο Subscriber.  
-  >
+  >>  
 PubCaller
     1.Δημιουργεί το νήμα στο οποίο τρέχει ο Publisher όταν καλείται.  
-        1. PubCaller  
+        1. PubCaller    
         2. run
-DoTheJob
+  >>        
+DoTheJob  
     1. public DoTheJob 
     Υλοποιείται όλος ο αλγόριθμος για την λήψη απόφασης του σέρβερ,υπολογίζονται τα δεδομένα που λαμβάνονται απο τους αισθητήρες,και καλείται ο Publiser για την κάθε παρίπτωση, καθώς και οι εγγραφές στην βάση δεδομένων μας.  
 DoTheJobCaller  
@@ -45,4 +47,4 @@ SampleMain
 MainServerClass  
     Εδώ καλείται η εκκίνηση του προγράμματος στον υπολογιστή.  
     1. public static void main  
-  >>>
+  
