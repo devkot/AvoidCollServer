@@ -22,11 +22,12 @@ Subscriber
     2. connectionLost  
     3. messageArrived  
     4. deliveryComplete  
-Publisher  
+  >
+Publisher    
     1.main()->Εδώ δίνονται τα στοιχεία και τα topics στα οποία η εφαρμογή θα αποστείλει ειδοποιήσεις.  
-SubCaller 
+SubCaller   
     1.Υλοποιεί το νήμα όπου τρέχει ο Subscriber.  
-
+  >
 PubCaller
     1.Δημιουργεί το νήμα στο οποίο τρέχει ο Publisher όταν καλείται.  
         1. PubCaller  
