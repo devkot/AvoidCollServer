@@ -16,14 +16,16 @@ Project_Devs Team
 3. Αντίστοιχα για επιβεβαιομένη σύγκρουση μεταξύ δύο τερματικών γίνεται Publish στα Topics “Light/Confirmed” “Proximity/Confirmed” “Acceleration/Confirmed” στα οποία κάνουν Subscribe οι εφαρμογές στα αντίστοιχα τερματικά.
 
 Οι Μέθοδοι που υλοποιούνται για αυτές τις λειτουργείες είναι οι εξής:  
-  >>>
-Subscriber  
+  >
+Subscriber
+  >
     1. main  
     2. connectionLost  
     3. messageArrived  
     4. deliveryComplete  
   >  
-Publisher    
+Publisher
+  >
     1.main()->Εδώ δίνονται τα στοιχεία και τα topics στα οποία η εφαρμογή θα αποστείλει ειδοποιήσεις. 
   >
 SubCaller  
