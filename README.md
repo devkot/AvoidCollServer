@@ -10,7 +10,7 @@ Project_Devs Team
 
 1. Για τον Subscriber της εφαρμογής εχουμε τα “+/Light” , “+/Proximity”, “+/Acceleration” όπου αποστέλοντε τα μυνήματα απο τα τερματικά.Το πρώτο πεδίο αφορά το μοναδίκο ID του κάθε κινητού τερματικού.
 
-2. Όταν αποφανθεί ο σέρβερ οτι υπάρχει σύγκρουση ενός μόνο τερματικόυ τότε κάνει Publish στα αντίστοιχα topics “Light/Danger”, “Proximity/Danger” kai “Acceleration/Danger”
+2. Όταν αποφανθεί ο σέρβερ οτι υπάρχει σύγκρουση ενός μόνο τερματικόυ τότε κάνει Publish στα αντίστοιχα topics “Light/Danger/id”, “Proximity/Danger/id” kai “Acceleration/Danger/id” όπου id=το μοναδικό id του κάθε τερματικού.
 
 3. Αντίστοιχα για επιβεβαιομένη σύγκρουση μεταξύ δύο τερματικών γίνεται Publish στα Topics “Light/Confirmed” “Proximity/Confirmed” “Acceleration/Confirmed” στα οποία κάνουν Subscribe οι εφαρμογές στα αντίστοιχα τερματικά.
 
