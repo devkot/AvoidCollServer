@@ -8,26 +8,39 @@ Project_Devs Team
 
 Η Εφαρμογή Java του server έχει υλοποιηθεί ώστε να ακούει μέσω MQTT Broker στο υποδίκτυό του τερματικά Android και να παιρνει αποφάσεις για επιβεβαιομένεςη μή συγκρούσεις.
 Τα Topics είναι χωρισμένα ανα κατηγορία αισθητήρα ως εξής:
+
 1. Για τον Subscriber της εφαρμογής εχουμε τα “+/Light” , “+/Proximity”, “+/Acceleration” όπου αποστέλοντε τα μυνήματα απο τα τερματικά.Το πρώτο πεδίο αφορά το μοναδίκο ID του κάθε κινητού τερματικού.
+
 2. Όταν αποφανθεί ο σέρβερ οτι υπάρχει σύγκρουση ενός μόνο τερματικόυ τότε κάνει Publish στα αντίστοιχα topics “Light/Danger”, “Proximity/Danger” kai “Acceleration/Danger”
+
 3. Αντίστοιχα για επιβεβαιομένη σύγκρουση μεταξύ δύο τερματικών γίνεται Publish στα Topics “Light/Confirmed” “Proximity/Confirmed” “Acceleration/Confirmed” στα οποία κάνουν Subscribe οι εφαρμογές στα αντίστοιχα τερματικά.
-Οι Μέθοδοι που υλοποιούντε για αυτές τις λειτουργείες είναι οι εξής:
+
+Οι Μέθοδοι που υλοποιούνται για αυτές τις λειτουργείες είναι οι εξής:
+
 Subscriber
-1. main
-2. connectionLost
-3. messageArrived
-4. deliveryComplete
+    1. main
+    2. connectionLost
+    3. messageArrived
+    4. deliveryComplete
+
 Publisher
+
 SubCaller
+    1.Υλοποιεί το νήμα όπου τρέχει ο Subscriber,
 PubCaller
-1. PubCaller
-2. run
+    1.Δημιουργεί το νήμα στο οποίο τρέχει ο Publisher όταν καλείται.
+        1. PubCaller
+        2. run
 DoTheJob
-1. public DoTheJob
+    1. public DoTheJob
+    Υλοποιείται όλος ο αλγόριθμος για την λήψη απόφασης του σέρβερ,υπολογίζονται τα δεδομένα που λαμβάνονται απο τους αισθητήρες,και καλείται ο Publiser για την κάθε παρίπτωση, καθώς και οι εγγραφές στην βάση δεδομένων μας.
 DoTheJobCaller
-1. DoTheJobCaller
-2. run
+    1.Εδώ υλοποιείται το νήμα στο οποίο τρέχει η συνάρτηση DoTheJob οπου γίνονται όλοι οι υπολογισμοί των δεδομένων.
+        1. DoTheJobCaller
+        2. run
 SampleMain
-1. public static void main
+    1. public static void main
+        Εδώ υλοποιείται η σύνδεση με την βάση,οπου εγγράφονται τα δεδομένα που παραχωρούντε απο την DoTheJob όταν κκριθεί οτι υπάρχει ενδεχόμενη σύγκρουση ή επιβεβαιομένη σύγκρουση.
 MainServerClass
-1. public static void main
+    Εδώ καλείται η εκκίνηση του προγράμματος στον υπολογιστή.
+    1. public static void main
