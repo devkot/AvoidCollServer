@@ -16,7 +16,6 @@ public class DoTheJob {
     public static boolean collision = false;
     public static long timef = 0;
     public Thread t;
-    //public static float pspeed = 0;
     public DoTheJob(String top, String mes,String time) {
         float valuex=0;
         float valuey=0;
@@ -34,7 +33,6 @@ public class DoTheJob {
         List<String> str;
         str = new ArrayList<>();
         str.add(0, top);
-        //String Ltopic = new String();
         for (String RR : str.get(0).split("/")) {
             if(i==1) {
                 switch (RR) {
