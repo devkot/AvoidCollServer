@@ -3,6 +3,7 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by jackfak on 2/1/2017.
  */
@@ -73,7 +74,7 @@ public class DoTheJob {
                                 }
 
                             }
-                            if(x<40.0){
+                            if(x < 40.0){
                                 collision=true;
                                 timef=System.currentTimeMillis();
                                 t=new Thread(new PubCaller("Light/Danger/"+id,"Danger!!! Low Light!!! "+time));
@@ -248,4 +249,5 @@ public class DoTheJob {
         }
         pid=id;
     }
+
 }

@@ -1,16 +1,20 @@
 package controller.tab;
 
 import controller.MainController;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.util.Callback;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 
 
 public class Tab1Controller {
@@ -33,10 +37,10 @@ public class Tab1Controller {
     @FXML private void btn1SaveClicked(ActionEvent event) {
         System.out.println("Btn 1 save clicked");
 
+        ObservableList<ObservableList> data;
+        TableView tableview = new TableView();
 
-        //String get4=txt4.getText();
-
-
+        data = FXCollections.observableArrayList();
         try {
             // Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
@@ -48,7 +52,7 @@ public class Tab1Controller {
 
             // Execute queries
 
-                System.out.println("Creating statement1...");
+                /*System.out.println("Creating statement1...");
                 String queryString1 = "SELECT * FROM Measurements  WHERE TerminalName = ?  ";
                 preparedStatement = conn.prepareStatement(queryString1);
                 preparedStatement.setString(1, txt1.getText());
@@ -97,26 +101,71 @@ public class Tab1Controller {
                 String confirmation = rs3.getString("Confirmed");
                 //Display values
                 System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
-            }
+            }*/
 
             System.out.println("Creating statement4...");
             String queryString4 = "SELECT * FROM Measurements  WHERE Date_Time = ?  ";
             preparedStatement = conn.prepareStatement(queryString4);
             preparedStatement.setString(1, txt4.getText());
             ResultSet rs4 = preparedStatement.executeQuery();
-            while (rs4.next())
-            {
-                //Retrieve by column name
-                String terminalname = rs4.getString("TerminalName");
-                String location = rs4.getString("Location");
-                String type_calculation = rs4.getString("Type_Calc");
-                String date_time = rs4.getString("Date_Time");
-                String confirmation = rs4.getString("Confirmed");
-                //Display values
-                System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
+
+            for (int i = 0; i < rs4.getMetaData().getColumnCount(); i++) {
+
+                //We are using non property style for making dynamic table
+
+                final int j = i;
+
+                TableColumn col = new TableColumn(rs4.getMetaData().getColumnName(i + 1));
+                //noinspection Convert2Lambda
+                col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>()
+                {
+                    public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param) {
+                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                    }
+
+                });
+
+                tableview.getColumns().addAll(col);
+                System.out.println("Column [" + i + "] ");
+
             }
 
-                System.out.println("Creating statement5...");
+            while (rs4.next()) {
+                //Iterate Row
+
+                ObservableList<String> row = FXCollections.observableArrayList();
+
+                for (int i = 1; i <= rs4.getMetaData().getColumnCount(); i++) {
+
+                    //Iterate Column
+
+                    row.add(rs4.getString(i));
+
+                }
+
+                System.out.println("Row [1] added " + row);
+                data.add(row);
+
+
+            }
+            //FINALLY ADDED TO TableView
+
+            tableview.setItems(data);
+
+            //Retrieve by column name
+            String terminalname = rs4.getString("TerminalName");
+            String location = rs4.getString("Location");
+            String type_calculation = rs4.getString("Type_Calc");
+            String date_time = rs4.getString("Date_Time");
+            String confirmation = rs4.getString("Confirmed");
+            //Display values
+            System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
+
+
+
+
+
+              /*  System.out.println("Creating statement5...");
                 String queryString5 = "SELECT * FROM Measurements  WHERE Confirmed = ?  ";
                 preparedStatement = conn.prepareStatement(queryString5);
                 preparedStatement.setString(1, txt5.getText());
@@ -131,18 +180,16 @@ public class Tab1Controller {
                 String confirmation = rs5.getString("Confirmed");
                 //Display values
                 System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
-            }
-
-
+            }*/
 
 
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Error on Building Data");
         }
+    }
 
 
-    }
-    public void init(MainController mainController) {
-        main = mainController;
-    }
+
+    public void init(MainController mainController) {main = mainController;}
 }
