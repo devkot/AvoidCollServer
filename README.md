@@ -73,8 +73,8 @@ MainServerClass
   Οσον αφορά την  Mysql Database υλοποιηθηκε σε μηχανηματα linux.To database μας ειναι το Measurements με user = "root" και password = "4ndp5$$$".
   Επιπλεν στο αρχειο SampleMain γινεται η συνδεση της βασης με την java παιρνωντας οτι ειναι απαραιτητο ωστε να γινει η καταγραφη απο τις μετρησεις.
   Η βαση μαζι με επιβαιβεωμενες συγκρουσεις ειναι καπως ετσι
-  ![Image](database1)
-  ![Image](database2)
+  ![Image](database1.png)
+  ![Image](database2.png)
   
   
   
