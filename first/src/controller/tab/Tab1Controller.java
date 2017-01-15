@@ -1,14 +1,11 @@
 package controller.tab;
 
 import controller.MainController;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.util.Callback;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -37,10 +34,9 @@ public class Tab1Controller {
     @FXML private void btn1SaveClicked(ActionEvent event) {
         System.out.println("Btn 1 save clicked");
 
-        ObservableList<ObservableList> data;
+        /*ObservableList<ObservableList> data;
         TableView tableview = new TableView();
-
-        data = FXCollections.observableArrayList();
+        data = FXCollections.observableArrayList();*/
         try {
             // Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
@@ -52,7 +48,7 @@ public class Tab1Controller {
 
             // Execute queries
 
-                /*System.out.println("Creating statement1...");
+                System.out.println("Creating statement1...");
                 String queryString1 = "SELECT * FROM Measurements  WHERE TerminalName = ?  ";
                 preparedStatement = conn.prepareStatement(queryString1);
                 preparedStatement.setString(1, txt1.getText());
@@ -60,13 +56,13 @@ public class Tab1Controller {
                 while (rs1.next())
                 {
                     //Retrieve by column name
-                    String terminalname = rs1.getString("TerminalName");
-                    String location = rs1.getString("Location");
-                    String type_calculation = rs1.getString("Type_Calc");
-                    String date_time = rs1.getString("Date_Time");
-                    String confirmation = rs1.getString("Confirmed");
+                    String terminalname1 = rs1.getString("TerminalName");
+                    String location1 = rs1.getString("Location");
+                    String type_calculation1 = rs1.getString("Type_Calc");
+                    String date_time1 = rs1.getString("Date_Time");
+                    String confirmation1 = rs1.getString("Confirmed");
                     //Display values
-                    System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
+                    System.out.format("%s, %s, %s, %s, %s\n", terminalname1, location1, type_calculation1, date_time1, confirmation1);
                 }
 
                 System.out.println("Creating statement2...");
@@ -77,13 +73,13 @@ public class Tab1Controller {
             while (rs2.next())
             {
                 //Retrieve by column name
-                String terminalname = rs2.getString("TerminalName");
-                String location = rs2.getString("Location");
-                String type_calculation = rs2.getString("Type_Calc");
-                String date_time = rs2.getString("Date_Time");
-                String confirmation = rs2.getString("Confirmed");
+                String terminalname2 = rs2.getString("TerminalName");
+                String location2 = rs2.getString("Location");
+                String type_calculation2 = rs2.getString("Type_Calc");
+                String date_time2 = rs2.getString("Date_Time");
+                String confirmation2 = rs2.getString("Confirmed");
                 //Display values
-                System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
+                System.out.format("%s, %s, %s, %s, %s\n", terminalname2, location2, type_calculation2, date_time2, confirmation2);
             }
 
              System.out.println("Creating statement3...");
@@ -94,14 +90,14 @@ public class Tab1Controller {
             while (rs3.next())
             {
                 //Retrieve by column name
-                String terminalname = rs3.getString("TerminalName");
-                String location = rs3.getString("Location");
-                String type_calculation = rs3.getString("Type_Calc");
-                String date_time = rs3.getString("Date_Time");
-                String confirmation = rs3.getString("Confirmed");
+                String terminalname3 = rs3.getString("TerminalName");
+                String location3 = rs3.getString("Location");
+                String type_calculation3 = rs3.getString("Type_Calc");
+                String date_time3 = rs3.getString("Date_Time");
+                String confirmation3 = rs3.getString("Confirmed");
                 //Display values
-                System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
-            }*/
+                System.out.format("%s, %s, %s, %s, %s\n", terminalname3, location3, type_calculation3, date_time3, confirmation3);
+            }
 
             System.out.println("Creating statement4...");
             String queryString4 = "SELECT * FROM Measurements  WHERE Date_Time = ?  ";
@@ -109,7 +105,7 @@ public class Tab1Controller {
             preparedStatement.setString(1, txt4.getText());
             ResultSet rs4 = preparedStatement.executeQuery();
 
-            for (int i = 0; i < rs4.getMetaData().getColumnCount(); i++) {
+            /*for (int i = 0; i < rs4.getMetaData().getColumnCount(); i++) {
 
                 //We are using non property style for making dynamic table
 
@@ -128,10 +124,10 @@ public class Tab1Controller {
                 tableview.getColumns().addAll(col);
                 System.out.println("Column [" + i + "] ");
 
-            }
+            }*/
 
             while (rs4.next()) {
-                //Iterate Row
+                /*//Iterate Row
 
                 ObservableList<String> row = FXCollections.observableArrayList();
 
@@ -150,22 +146,22 @@ public class Tab1Controller {
             }
             //FINALLY ADDED TO TableView
 
-            tableview.setItems(data);
+            tableview.setItems(data);*/
 
-            //Retrieve by column name
-            String terminalname = rs4.getString("TerminalName");
-            String location = rs4.getString("Location");
-            String type_calculation = rs4.getString("Type_Calc");
-            String date_time = rs4.getString("Date_Time");
-            String confirmation = rs4.getString("Confirmed");
-            //Display values
-            System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
-
-
-
+                //Retrieve by column name
+                String terminalname4 = rs4.getString("TerminalName");
+                String location4 = rs4.getString("Location");
+                String type_calculation4 = rs4.getString("Type_Calc");
+                String date_time4 = rs4.getString("Date_Time");
+                String confirmation4 = rs4.getString("Confirmed");
+                //Display values
+                System.out.format("%s, %s, %s, %s, %s\n", terminalname4, location4, type_calculation4, date_time4, confirmation4);
+            }
 
 
-              /*  System.out.println("Creating statement5...");
+
+
+                System.out.println("Creating statement5...");
                 String queryString5 = "SELECT * FROM Measurements  WHERE Confirmed = ?  ";
                 preparedStatement = conn.prepareStatement(queryString5);
                 preparedStatement.setString(1, txt5.getText());
@@ -173,14 +169,14 @@ public class Tab1Controller {
             while (rs5.next())
             {
                 //Retrieve by column name
-                String terminalname = rs5.getString("TerminalName");
-                String location = rs5.getString("Location");
-                String type_calculation = rs5.getString("Type_Calc");
-                String date_time = rs5.getString("Date_Time");
-                String confirmation = rs5.getString("Confirmed");
+                String terminalname5 = rs5.getString("TerminalName");
+                String location5 = rs5.getString("Location");
+                String type_calculation5 = rs5.getString("Type_Calc");
+                String date_time5 = rs5.getString("Date_Time");
+                String confirmation5 = rs5.getString("Confirmed");
                 //Display values
-                System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
-            }*/
+                System.out.format("%s, %s, %s, %s, %s\n", terminalname5, location5, type_calculation5, date_time5, confirmation5);
+            }
 
 
         } catch (Exception e) {
