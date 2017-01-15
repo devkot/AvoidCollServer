@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.sql.Connection;
@@ -22,18 +21,20 @@ public class Tab1Controller {
     private static final String user = "root";
     private static final String password = "4ndp5$$$";
 
-    @FXML public Label lbl1;
-    @FXML private TextField txt1;
+    @FXML public Label lblx,lbl1,lbl2,lbl3,lbl4;
+    @FXML private TextField txt1,txt2,txt3,txt4,txt5;
     @FXML private Button btn1Save;
     @FXML private Button btn1Send;
     private PreparedStatement preparedStatement;
-    private String query = " ";
-    private TextArea ta = new TextArea();
+    //private String query = " ";
+    //private TextArea ta = new TextArea();
+
 
     @FXML private void btn1SaveClicked(ActionEvent event) {
         System.out.println("Btn 1 save clicked");
 
-        lbl1.setText(txt1.getText());
+
+        //String get4=txt4.getText();
 
 
         try {
@@ -45,49 +46,95 @@ public class Tab1Controller {
             Connection conn = DriverManager.getConnection(url, user, password);
             System.out.println("Success Connection with the database");
 
-            // Execute a query
-            /*System.out.println("Creating statement...");
-            Statement stmt = conn.createStatement();
-            String sql;
-            sql = "SELECT * FROM Measurements";
-            ResultSet rs = stmt.executeQuery(sql);
-            */
-            //String queryString = "select" + query + "where" + where.getText ();
-            //ResultSet rs = stmt.executeQuery(sql);
-            System.out.println("Creating statement...");
-            String queryString = "SELECT * FROM Measurements  WHERE Confirmed = ?  " ;
-            preparedStatement = conn.prepareStatement(queryString);
-            preparedStatement.setString(1,txt1.getText());
-            ResultSet rs = preparedStatement.executeQuery();
+            // Execute queries
 
-            /*String queryString = "select" + query + "where" + txt1.getText ();
-            preparedStatement = conn.prepareStatement (queryString);
-            preparedStatement.setString(1,txt1.getText());
-            ResultSet rs = preparedStatement.executeQuery ( );*/
+                System.out.println("Creating statement1...");
+                String queryString1 = "SELECT * FROM Measurements  WHERE TerminalName = ?  ";
+                preparedStatement = conn.prepareStatement(queryString1);
+                preparedStatement.setString(1, txt1.getText());
+                ResultSet rs1 = preparedStatement.executeQuery();
+                while (rs1.next())
+                {
+                    //Retrieve by column name
+                    String terminalname = rs1.getString("TerminalName");
+                    String location = rs1.getString("Location");
+                    String type_calculation = rs1.getString("Type_Calc");
+                    String date_time = rs1.getString("Date_Time");
+                    String confirmation = rs1.getString("Confirmed");
+                    //Display values
+                    System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
+                }
 
-            while (rs.next()) {
-
-                //System.out.println("mpikeeeee");
-
+                System.out.println("Creating statement2...");
+                String queryString2 = "SELECT * FROM Measurements  WHERE Location = ?  ";
+                preparedStatement = conn.prepareStatement(queryString2);
+                preparedStatement.setString(1, txt2.getText());
+                ResultSet rs2 = preparedStatement.executeQuery();
+            while (rs2.next())
+            {
                 //Retrieve by column name
-                String terminalname = rs.getString("TerminalName");
-                String location = rs.getString("Location");
-                String type_calculation = rs.getString("Type_Calc");
-                String date_time = rs.getString("Date_Time");
-                String confirmation = rs.getString("Confirmed");
-
-
-                //String finalstring = filter(terminalname) + filter(location) + filter(type_calculation) + filter(date_time) + filter(confirmation);
-                //ta.setText(finalstring);
-
+                String terminalname = rs2.getString("TerminalName");
+                String location = rs2.getString("Location");
+                String type_calculation = rs2.getString("Type_Calc");
+                String date_time = rs2.getString("Date_Time");
+                String confirmation = rs2.getString("Confirmed");
                 //Display values
                 System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
-                /*System.out.println("TerminalName: " + terminalname);
-                System.out.println("Location: " + location);
-                System.out.println("Type & Calculation: " + type_calculation);
-                System.out.println("Date & Time: " + date_time);
-                System.out.println("Confirmed: " + confirmation);*/
             }
+
+             System.out.println("Creating statement3...");
+                String queryString3 = "SELECT * FROM Measurements  WHERE Type_Calc = ?  ";
+                preparedStatement = conn.prepareStatement(queryString3);
+                preparedStatement.setString(1, txt3.getText());
+                ResultSet rs3 = preparedStatement.executeQuery();
+            while (rs3.next())
+            {
+                //Retrieve by column name
+                String terminalname = rs3.getString("TerminalName");
+                String location = rs3.getString("Location");
+                String type_calculation = rs3.getString("Type_Calc");
+                String date_time = rs3.getString("Date_Time");
+                String confirmation = rs3.getString("Confirmed");
+                //Display values
+                System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
+            }
+
+            System.out.println("Creating statement4...");
+            String queryString4 = "SELECT * FROM Measurements  WHERE Date_Time = ?  ";
+            preparedStatement = conn.prepareStatement(queryString4);
+            preparedStatement.setString(1, txt4.getText());
+            ResultSet rs4 = preparedStatement.executeQuery();
+            while (rs4.next())
+            {
+                //Retrieve by column name
+                String terminalname = rs4.getString("TerminalName");
+                String location = rs4.getString("Location");
+                String type_calculation = rs4.getString("Type_Calc");
+                String date_time = rs4.getString("Date_Time");
+                String confirmation = rs4.getString("Confirmed");
+                //Display values
+                System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
+            }
+
+                System.out.println("Creating statement5...");
+                String queryString5 = "SELECT * FROM Measurements  WHERE Confirmed = ?  ";
+                preparedStatement = conn.prepareStatement(queryString5);
+                preparedStatement.setString(1, txt5.getText());
+                ResultSet rs5 = preparedStatement.executeQuery();
+            while (rs5.next())
+            {
+                //Retrieve by column name
+                String terminalname = rs5.getString("TerminalName");
+                String location = rs5.getString("Location");
+                String type_calculation = rs5.getString("Type_Calc");
+                String date_time = rs5.getString("Date_Time");
+                String confirmation = rs5.getString("Confirmed");
+                //Display values
+                System.out.format("%s, %s, %s, %s, %s\n", terminalname, location, type_calculation, date_time, confirmation);
+            }
+
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
